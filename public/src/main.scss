@@ -1,0 +1,39 @@
+@import 'styles-variables';
+
+@import '~bootstrap/scss/bootstrap';
+
+@import 'style-reset';
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@import './themes/black-theme.scss';
+@import './themes/light-theme.scss';
+
+// import custom component themes here
+@import 'styles-reset.scss-theme';
+@import 'app/layouts/sidebar/sidebar.component.scss-theme.scss';
+@import 'app/modules/apartment/pages/apartment-grid/apartment-grid.scss-theme.scss';
+
+@mixin custom-components-theme($theme) {
+  @include my-styles-reset-theme($theme);
+  @include sidebar-component-theme($theme);
+  @include apartment-grid-theme($theme);
+}
+
+.my-light-theme {
+  @include angular-material-theme($my-light-theme);
+  @include custom-components-theme($my-light-theme);
+}
+
+.my-dark-theme {
+  @include angular-material-theme($my-black-theme);
+  @include custom-components-theme($my-black-theme);
+}
+
+body {
+    background-color: #eee;
+    color: #3c4858;
+    font-weight: 300;
+}

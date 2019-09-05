@@ -1,0 +1,102 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Apartments in Ann Arbor, MI</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <app-apartment-filter
+        [searchFilter]="searchFilter"
+      ></app-apartment-filter>
+      <table
+        mat-table
+        [dataSource]="data"
+        multiTemplateDataRows
+        matSort
+        matSortActive="created"
+        matSortDisableClear
+        matSortDirection="desc"
+      >
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef>Address</th>
+          <td mat-cell *matCellDef="let element">{{ element[3] }}</td>
+        </ng-container>
+        <ng-container matColumnDef="city">
+          <th mat-header-cell *matHeaderCellDef>City</th>
+          <td mat-cell *matCellDef="let element">{{ element[4] }}</td>
+        </ng-container>
+        <ng-container matColumnDef="state">
+          <th mat-header-cell *matHeaderCellDef>State</th>
+          <td mat-cell *matCellDef="let element">{{ element[5] }}</td>
+        </ng-container>
+        <ng-container matColumnDef="building_name">
+          <th mat-header-cell *matHeaderCellDef>Building Name</th>
+          <td mat-cell *matCellDef="let element">{{ element[6] }}</td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>
+            Price
+          </th>
+          <td mat-cell *matCellDef="let element">${{ element[1] }}</td>
+        </ng-container>
+        <ng-container matColumnDef="bedrooms">
+          <th mat-header-cell *matHeaderCellDef>
+            Bedrooms
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element[0] }}</td>
+        </ng-container>
+        <ng-container matColumnDef="bathrooms">
+          <th mat-header-cell *matHeaderCellDef>
+            Bathrooms
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element[2] }}</td>
+        </ng-container>
+        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+        <ng-container matColumnDef="expandedDetail">
+          <td
+            mat-cell
+            *matCellDef="let element"
+            [attr.colspan]="displayedColumns.length"
+          >
+            <div
+              class="appartment-detail"
+              [@detailExpand]="
+                element == expandedElement ? 'expanded' : 'collapsed'
+              "
+            >
+              <app-apartment-detail
+                [apartment]="element"
+                *ngIf="element == expandedElement"
+              ></app-apartment-detail>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          class="element-row"
+          [class.expanded-row]="expandedElement === row"
+          (click)="toggleRow(row)"
+        ></tr>
+
+        <tr
+          mat-row
+          *matRowDef="let row; columns: ['expandedDetail']"
+          class="detail-row"
+          [hidden]="expandedElement === null"
+        ></tr>
+      </table>
+
+      <mat-paginator
+        #paginator
+        [length]="resultsLength"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 15]"
+        [showFirstLastButtons]="true"
+      >
+      </mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>

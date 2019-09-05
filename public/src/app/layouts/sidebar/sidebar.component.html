@@ -1,0 +1,30 @@
+<div class="logo">
+  <a class="simple-text" href="">
+    <div class="logo-img">
+      <img src="assets/favicon.ico" />
+    </div>
+    Apartment Finder
+  </a>
+</div>
+<div class="sidebar-wrapper">
+  <!---->
+  <ul class="nav">
+    <!---->
+    <li
+      class="nav-item"
+      *ngFor="let item of menuItems"
+      [ngClass]="{
+        active: item.MenuURI ? router.isActive(item.MenuURI, true) : false,
+        expanded: expanded
+      }"
+    >
+      <a
+        class="nav-link"
+        [routerLink]="[item.MenuURI]"
+        routerlinkactive="active"
+        ><i class="material-icons">{{ item.MenuIcon }}</i>
+        <p>{{ item.MenuName }}</p>
+      </a>
+    </li>
+  </ul>
+</div>

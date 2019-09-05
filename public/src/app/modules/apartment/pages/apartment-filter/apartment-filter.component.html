@@ -1,0 +1,48 @@
+<div class="filter-container">
+  <label class="bedroom-label">Bedrooms:</label>
+
+  <mat-button-toggle-group
+    #bedroomGroup="matButtonToggleGroup"
+    [formControl]="searchFilter.bedrooms"
+    ngDefaultControl
+  >
+    <mat-button-toggle
+      value="{{ room }}"
+      aria-label="One"
+      *ngFor="let room of [1, 2, 3, 4, 5]"
+    >
+      {{ room }}+
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <label class="bedroom-label">Bathrooms:</label>
+
+  <mat-button-toggle-group
+    #bathroomGroup="matButtonToggleGroup"
+    [formControl]="searchFilter.bathroooms"
+    ngDefaultControl
+  >
+    <mat-button-toggle
+      value="{{ room }}"
+      aria-label="One"
+      *ngFor="let room of [1, 2, 3, 4, 5]"
+    >
+      {{ room }}+
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <label class="bedroom-label">Price:</label>
+
+  <mat-slider
+    class="price-slider"
+    thumbLabel
+    [displayWith]="formatLabel"
+    tickInterval="2000"
+    min="1000"
+    max="10000"
+    #slider
+    [formControl]="searchFilter.price"
+  ></mat-slider>
+
+  <label class="bedroom-label">$ {{ searchFilter.price.value }}</label>
+</div>

@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ apartment[6] }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="apartment-content">
+      <div class="apartment-image">
+        <img src="{{ './assets/img/' + apartment[7] + '.jpg' }}" />
+      </div>
+      <div class="apartment-detail">
+        <div>
+          <div class="apartment-price">
+            <span class="apartment-price-text"> ${{ apartment[1] }} </span>
+          </div>
+          <span class="apartment-beds-text">
+            {{ apartment[0] }} Bedrooms - {{ apartment[2] }} Bathrooms
+          </span>
+          <div class="address">
+            <div class="apartment-address">
+              <h2 class="address-header">
+                <span>
+                  {{ apartment[3] }}
+                </span>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button mat-raised-button color="warn">Check Availability</button>
+          <button mat-button>Call Now</button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

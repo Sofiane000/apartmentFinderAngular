@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.appartment-detail {
+  overflow: hidden;
+  display: flex;
+}

@@ -1,0 +1,31 @@
+
+ .main-panel, .sidebar {
+    height: 100%;
+    max-height: 100%;
+}
+
+.sidenav-container {
+    height: 100%;
+}
+
+.wrapper{
+    position: relative;
+    top: 0;
+    height: 100vh;
+}
+
+.sidenav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    width: 300px;
+    box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+}
+
+.main-content{
+    margin-top: 35px;
+    padding: 30px 15px;
+    min-height: calc(100vh - 123px);
+}

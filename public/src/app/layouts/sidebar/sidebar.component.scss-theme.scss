@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+@mixin sidebar-component-theme($theme) {
+  $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
+  $warn:map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+
+
+  .nav li.active>a{
+    background-color: mat-color($warn,600);
+
+  }
+}

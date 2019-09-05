@@ -1,0 +1,22 @@
+<div class="toolbar">
+  <mat-toolbar color="primary">
+    <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="toggleNav()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="container">
+      <a routerLink="" class="branding spacer">
+        {{ 'Apartments' }}
+      </a>
+    </div>
+    <mat-slide-toggle
+      [checked]="isDarkTheme | async"
+      (change)="toggleDarkTheme($event.checked)"
+      >Toggle theme
+    </mat-slide-toggle>
+  </mat-toolbar>
+</div>
