@@ -1,5 +1,3 @@
-
-
 ## Apartment Finder Challenge
 
 For this challenge you will be creating an apartment finder app that consumes a custom API and returns a grid listing of apartment listings in Ann Arbor, MI. This is a test of basic front end proficiency including HTTP requests, CSS layouts, and JavaScript knowledge.
@@ -120,3 +118,6 @@ We use a rubric to make sure that our assessments are consistent. This is a summ
 |                   | Error Handling           | Able to handle all error cases                                                                                           |
 |                   | Effective UX             | The UI looks good and is easy to use                                                                                     |
 |                   | Dependencies             | Dependencies (if any) are added and used purposefully                                                                    |
+
+To run the application run: npm start in one cmd to get the api running and
+npm run start-web in another one to get the application
